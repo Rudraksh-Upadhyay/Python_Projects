@@ -1,0 +1,30 @@
+READ ME
+
+
+This project implements a hand gesture recognition system using Python, OpenCV, and MediaPipe. The application captures video input from a webcam and processes the frames to detect hand landmarks. Based on the number of fingers raised, it sends corresponding keyboard commands to control a media player or other applications. A pop-up notification is displayed at the start and when the gesture mode is turned off, enhancing user interaction.
+
+The project utilizes several key libraries:
+OpenCV: For capturing video input and processing images.
+MediaPipe: For hand tracking and landmark detection.
+PyAutoGUI: To simulate keyboard presses based on detected gestures.
+Tkinter: For creating pop-up notifications to inform users about the application state.
+
+
+Key Components
+Hand Detection:
+The application initializes the MediaPipe Hands module, which detects hand landmarks in real-time from the webcam feed.
+The count_fingers function analyzes the positions of these landmarks to determine how many fingers are raised.
+Gesture Recognition:
+The system recognizes specific gestures based on the number of fingers detected:
+1 finger raised: Simulates a "right" arrow key press.
+2 fingers raised: Simulates a "left" arrow key press.
+3 fingers raised: Simulates an "up" arrow key press.
+4 fingers raised: Simulates a "down" arrow key press.
+5 fingers raised: Simulates a "space" key press.
+If the user forms a specific gesture (indicated by count == -1), a pop-up message is displayed, and the program exits.
+User Feedback:
+A pop-up message is shown at the start of the application to indicate that "YOUTUBE IS IN HANDS."
+Another pop-up appears when the gesture mode is turned off, providing feedback to the user.
+Real-Time Processing:
+The application runs in a continuous loop, processing each frame captured from the webcam until terminated by pressing 'q'.
+It uses cv2.imshow to display the video feed with drawn landmarks for visual feedback.
